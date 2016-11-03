@@ -20,7 +20,8 @@ public:
     //slot declared for objects made in the .ui form
 private slots:
 
-    void on_pushButton_clicked();
+    void on_runDFS_clicked();
+    void on_mapOptions_clicked();
 
 private:
     Ui::ControlWindow *ui;

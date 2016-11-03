@@ -27,8 +27,11 @@ std::vector<std::vector<int>> DFS::DFSearch(std::vector<int> start)
     fExplored.push_back(start);
     //if goal found, return path
     if(fMap[start[0]][start[1]] == 2) return fExplored;
+    //testing: check what's in the above if
+    std::cout << "start: " << start[0] << " " << start[1] << "\n"
+              << "startValue: " << fMap[start[0]][start[1]] << "\n";
     //output current location and its value for testing
-    std::cout << "current: " << start[0] << " " << start[1] << "\n";
+    //std::cout << "current: " << start[0] << " " << start[1] << "\n";
     //std::cout << fMap[start[0]][start[1]] << "\n";
 
     //No good variable to loop over, so the four "next" values and their if statements are
@@ -66,6 +69,7 @@ std::vector<std::vector<int>> DFS::DFSearch(std::vector<int> start)
 
     if(inBounds(next)==true && isExplored(next)==false && fMap[next[0]][next[1]] != 3)
     {
+        std::cout << "test" << "\n";
         return DFSearch(next);
     }
 

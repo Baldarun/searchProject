@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'displaywindow.ui'
+** Form generated from reading UI file 'mapoptions.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_DISPLAYWINDOW_H
-#define UI_DISPLAYWINDOW_H
+#ifndef UI_MAPOPTIONS_H
+#define UI_MAPOPTIONS_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -18,32 +18,32 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_DisplayWindow
+class Ui_MapOptions
 {
 public:
 
-    void setupUi(QWidget *DisplayWindow)
+    void setupUi(QWidget *MapOptions)
     {
-        if (DisplayWindow->objectName().isEmpty())
-            DisplayWindow->setObjectName(QStringLiteral("DisplayWindow"));
-        DisplayWindow->resize(400, 400);
+        if (MapOptions->objectName().isEmpty())
+            MapOptions->setObjectName(QStringLiteral("MapOptions"));
+        MapOptions->resize(400, 400);
 
-        retranslateUi(DisplayWindow);
+        retranslateUi(MapOptions);
 
-        QMetaObject::connectSlotsByName(DisplayWindow);
+        QMetaObject::connectSlotsByName(MapOptions);
     } // setupUi
 
-    void retranslateUi(QWidget *DisplayWindow)
+    void retranslateUi(QWidget *MapOptions)
     {
-        DisplayWindow->setWindowTitle(QApplication::translate("DisplayWindow", "Form", 0));
+        MapOptions->setWindowTitle(QApplication::translate("MapOptions", "Form", 0));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class DisplayWindow: public Ui_DisplayWindow {};
+    class MapOptions: public Ui_MapOptions {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_DISPLAYWINDOW_H
+#endif // UI_MAPOPTIONS_H
