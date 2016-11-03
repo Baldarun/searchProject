@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\controlwindow.o
+./release\Algorithm.o
+./release\DFS.o
+./release\displaywindow.o
+./release\mapoptions.o
+./release\astar.o
+./release\mapmaker.o
+./release\moc_controlwindow.o
+./release\moc_displaywindow.o
+./release\moc_mapoptions.o
+);

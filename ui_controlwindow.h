@@ -22,16 +22,24 @@ QT_BEGIN_NAMESPACE
 class Ui_ControlWindow
 {
 public:
-    QPushButton *pushButton;
+    QPushButton *runDFS;
+    QPushButton *mapOptions;
+    QPushButton *placeholder;
 
     void setupUi(QWidget *ControlWindow)
     {
         if (ControlWindow->objectName().isEmpty())
             ControlWindow->setObjectName(QStringLiteral("ControlWindow"));
         ControlWindow->resize(400, 300);
-        pushButton = new QPushButton(ControlWindow);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(150, 130, 75, 23));
+        runDFS = new QPushButton(ControlWindow);
+        runDFS->setObjectName(QStringLiteral("runDFS"));
+        runDFS->setGeometry(QRect(50, 20, 291, 23));
+        mapOptions = new QPushButton(ControlWindow);
+        mapOptions->setObjectName(QStringLiteral("mapOptions"));
+        mapOptions->setGeometry(QRect(130, 220, 121, 51));
+        placeholder = new QPushButton(ControlWindow);
+        placeholder->setObjectName(QStringLiteral("placeholder"));
+        placeholder->setGeometry(QRect(50, 60, 291, 23));
 
         retranslateUi(ControlWindow);
 
@@ -41,7 +49,9 @@ public:
     void retranslateUi(QWidget *ControlWindow)
     {
         ControlWindow->setWindowTitle(QApplication::translate("ControlWindow", "Form", 0));
-        pushButton->setText(QApplication::translate("ControlWindow", "Run", 0));
+        runDFS->setText(QApplication::translate("ControlWindow", "Run Depth First Search", 0));
+        mapOptions->setText(QApplication::translate("ControlWindow", "Display Map Options", 0));
+        placeholder->setText(QApplication::translate("ControlWindow", "Placeholer", 0));
     } // retranslateUi
 
 };

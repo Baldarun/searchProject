@@ -13,17 +13,43 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="runDFS">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>130</y>
-     <width>75</width>
+     <x>50</x>
+     <y>20</y>
+     <width>291</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Run</string>
+    <string>Run Depth First Search</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mapOptions">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>220</y>
+     <width>121</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Display Map Options</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="placeholder">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>60</y>
+     <width>291</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Placeholer</string>
    </property>
   </widget>
  </widget>

@@ -34,3 +34,4 @@ std::vector<int> Algorithm::findStart()
             if (fMap[i][j] == 1) return std::vector<int>{i, j};
         }
 }
+
