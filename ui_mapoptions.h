@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,12 +22,16 @@ QT_BEGIN_NAMESPACE
 class Ui_MapOptions
 {
 public:
+    QPushButton *newMap;
 
     void setupUi(QWidget *MapOptions)
     {
         if (MapOptions->objectName().isEmpty())
             MapOptions->setObjectName(QStringLiteral("MapOptions"));
         MapOptions->resize(400, 400);
+        newMap = new QPushButton(MapOptions);
+        newMap->setObjectName(QStringLiteral("newMap"));
+        newMap->setGeometry(QRect(60, 70, 121, 23));
 
         retranslateUi(MapOptions);
 
@@ -36,6 +41,7 @@ public:
     void retranslateUi(QWidget *MapOptions)
     {
         MapOptions->setWindowTitle(QApplication::translate("MapOptions", "Form", 0));
+        newMap->setText(QApplication::translate("MapOptions", "Generate New Map", 0));
     } // retranslateUi
 
 };

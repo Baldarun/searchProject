@@ -30,7 +30,7 @@ void DisplayWindow::paintEvent(QPaintEvent *)
 
     //call the search method and store its output as a vector if it hasn't already been called
     if(fDFS->getExplored().empty()==true)
-        std::vector<std::vector<int>> output = fDFS->DFSearch(fDFS->findStart());
+        std::vector<std::vector<int>> output = fDFS->DFSearch(fDFS->getStart());
 
     //loop over the output
     //This loop comes before the grid loop so that the grid is visible over it

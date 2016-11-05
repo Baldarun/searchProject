@@ -6,9 +6,9 @@
 #include <QPainter>
 
 //constructor
-ControlWindow::ControlWindow(DFS * dfs, QWidget *parent) :
+ControlWindow::ControlWindow(DFS * dfs, MapMaker * map, QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::ControlWindow), fDFS(dfs)
+    ui(new Ui::ControlWindow), fDFS(dfs), fMapMaker(map)
 {
     ui->setupUi(this);
 
@@ -26,5 +26,5 @@ void ControlWindow::on_runDFS_clicked()
 
 void ControlWindow::on_mapOptions_clicked()
 {
-    MapOptions * view = new MapOptions(fDFS);
+    MapOptions * view = new MapOptions(fMapMaker);
 }

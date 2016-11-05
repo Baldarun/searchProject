@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <DFS.h>
+#include <mapmaker.h>
 
 namespace Ui {
 class ControlWindow;
@@ -14,7 +15,7 @@ class ControlWindow : public QMainWindow
 
     //constructor and destructor declaration
 public:
-    explicit ControlWindow(DFS * dfs, QWidget *parent = 0);
+    explicit ControlWindow(DFS * dfs, MapMaker * map, QWidget *parent = 0);
     ~ControlWindow();
 
     //slot declared for objects made in the .ui form
@@ -28,6 +29,7 @@ private:
 
     //DFS to be used declared as a pointer to the input
     DFS * fDFS;
+    MapMaker * fMapMaker;
 
 };
 

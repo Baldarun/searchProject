@@ -11,12 +11,15 @@ DFS::DFS()
             {0, 0, 3, 0, 3, 0, 0, 0},
             {0, 0, 2, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0}};
+
+    fStart = this->findStart();
 }
 
 //constructor that would take an input vector to use as the map
 DFS::DFS(std::vector<std::vector<int>> map)
 {
     fMap = map;
+    fStart = this->findStart();
 }
 
 //this method will perform a depth first search starting at the point given as an argument

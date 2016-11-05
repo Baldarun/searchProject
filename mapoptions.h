@@ -2,7 +2,7 @@
 #define MAPOPTIONS_H
 
 #include <QWidget>
-#include <DFS.h>
+#include <mapmaker.h>
 
 namespace Ui {
 class MapOptions;
@@ -14,17 +14,19 @@ class MapOptions : public QWidget
 
 public:
     //constructor and destructor
-    explicit MapOptions(DFS * dfs, QWidget *parent = 0);
+    explicit MapOptions(MapMaker * map, QWidget *parent = 0);
     ~MapOptions();
 
 private slots:
     void paintEvent(QPaintEvent *event);
 
+    //void on_newMap_clicked();
+
 private:
-    //same private variables as ControlWindow
+    //same private variables as ControlWindow, besides fDFS, which isn't needed
     Ui::MapOptions *ui;
 
-    DFS * fDFS;
+    MapMaker * fMapMaker;
 };
 
 #endif // MAPOPTIONS_H
