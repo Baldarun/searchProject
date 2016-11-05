@@ -1,12 +1,13 @@
 #ifndef MAPMAKER_H
 #define MAPMAKER_H
 
+#include <Algorithm.h>
 #include <vector>
 #include <stdlib.h>
 #include <time.h>
 
 
-class MapMaker
+class MapMaker: public Algorithm
 {
 public:
     //default constructor
@@ -27,11 +28,6 @@ public:
         return fPercentWall;
     }
 
-    std::vector<std::vector<int>> getMap()
-    {
-        return fMap;
-    }
-
     void setMap(std::vector<std::vector<int>> map)
     {
         fMap = map;
@@ -48,9 +44,6 @@ private:
 
     //the percentage of the map that should be obstacle
     int fPercentWall;
-
-    //the map
-    std::vector<std::vector<int>> fMap;
 
 };
 

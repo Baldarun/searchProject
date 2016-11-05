@@ -30,19 +30,19 @@ void MapOptions::paintEvent(QPaintEvent *)
         {
            //draws a black rectangle in each corresponding location
            painter.setPen(Qt::black);
-           painter.drawRect(j*40, i*40, 40, 40);
+           painter.drawRect(j*30, i*30, 30, 30);
 
            //three if statements check for the start and finish, and label them
            //and also check for obstacles, and mark those with blacked out spaces
            if(fMapMaker->getMap()[i][j]==1)
            {
-               painter.drawText(j*40+10, i*40+15, "S");
+               painter.drawText(j*30+10, i*30+15, "S");
            }else if(fMapMaker->getMap()[i][j]==2)
            {
-               painter.drawText(j*40+10, i*40+15, "F");
+               painter.drawText(j*30+10, i*30+15, "F");
            }else if(fMapMaker->getMap()[i][j]==3)
            {
-               painter.fillRect(j*40, i*40, 40, 40, Qt::black);
+               painter.fillRect(j*30, i*30, 30, 30, Qt::black);
            }
         }
 
