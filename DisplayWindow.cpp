@@ -28,20 +28,21 @@ void DisplayWindow::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
 
-    //call the search method and store its output as a vector
-    std::vector<std::vector<int>> output = fDFS->DFSearch(fDFS->findStart());
+    //call the search method and store its output as a vector if it hasn't already been called
+    if(fDFS->getExplored().empty()==true)
+        std::vector<std::vector<int>> output = fDFS->DFSearch(fDFS->getStart());
 
     //loop over the output
     //This loop comes before the grid loop so that the grid is visible over it
-    for(int i = 0; i<output.size(); i++) //fills explored tiles grey
+    for(int i = 0; i<fDFS->getExplored().size(); i++) //fills explored tiles grey
     {
         //create red rectangles in grid spaces the algorithm visits
-        painter.fillRect(output[i][1]*40, output[i][0]*40, 40, 40, Qt::red);
+        painter.fillRect(fDFS->getExplored()[i][1]*40, fDFS->getExplored()[i][0]*40, 40, 40, Qt::red);
         //copy the loop variable i to a QString value that drawtext can use
         QString qCount = QString::number(i);
         //places the value representing order visited in bottom right of each square
         //the added numbers are offsets to position the characters
-        painter.drawText(output[i][1]*40+20, output[i][0]*40+35, qCount);
+        painter.drawText(fDFS->getExplored()[i][1]*40+25, fDFS->getExplored()[i][0]*40+35, qCount);
         //path disappears if you resize the window
     }
 

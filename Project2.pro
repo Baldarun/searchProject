@@ -16,14 +16,23 @@ SOURCES += main.cpp\
         controlwindow.cpp \
     Algorithm.cpp \
     DFS.cpp \
-    displaywindow.cpp
+    displaywindow.cpp \
+    astar.cpp \
+    mapmaker.cpp \
+    mapoptions.cpp \
+    mapwindow.cpp
 
 HEADERS  += controlwindow.h \
     Algorithm.h \
     DFS.h \
-    displaywindow.h
+    displaywindow.h \
+    astar.h \
+    mapmaker.h \
+    mapoptions.h \
+    mapwindow.h
 
 FORMS    += controlwindow.ui \
-    displaywindow.ui
+    displaywindow.ui \
+    mapoptions.ui
 
 DISTFILES +=

@@ -11,7 +11,7 @@ class Algorithm
 public:
     Algorithm(); //constructor is unused
 
-    //method declarations for .cpp large enough to warrant being there
+    //method declarations for methods that check things. Details in .cpp
     bool inBounds(std::vector<int> toCheck);
     bool isExplored(std::vector<int> toCheck);
     std::vector<int> findStart();
@@ -27,8 +27,13 @@ public:
         return fMap;
     }
 
+    std::vector<int> getStart()
+    {
+        return fStart;
+    }
 
-    //objects declared as protected for inheritance
+
+//objects declared as protected for inheritance
 protected:
     //The 2D map
     std::vector<std::vector<int>> fMap;
