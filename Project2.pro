@@ -33,6 +33,7 @@ HEADERS  += controlwindow.h \
 
 FORMS    += controlwindow.ui \
     displaywindow.ui \
-    mapoptions.ui
+    mapoptions.ui \
+    form.ui
 
 DISTFILES +=

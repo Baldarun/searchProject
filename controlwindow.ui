@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="mapOptions">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>220</y>
+     <x>140</x>
+     <y>200</y>
      <width>121</width>
      <height>51</height>
     </rect>

@@ -32,6 +32,11 @@ public:
         return fStart;
     }
 
+    void setMap(std::vector<std::vector<int>> map)
+    {
+        fMap = map;
+    }
+
 
 //objects declared as protected for inheritance
 protected:

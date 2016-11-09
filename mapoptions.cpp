@@ -3,9 +3,9 @@
 
 #include <QPainter>
 
-MapOptions::MapOptions(MapMaker * map, QWidget *parent) :
+MapOptions::MapOptions(MapMaker * map, DFS *dfs, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::MapOptions), fMapMaker(map)
+    ui(new Ui::MapOptions), fMapMaker(map), fDFS(dfs)
 {
     ui->setupUi(this);
 
@@ -17,6 +17,17 @@ MapOptions::MapOptions(MapMaker * map, QWidget *parent) :
 MapOptions::~MapOptions()
 {
     delete ui;
+}
+
+void MapOptions::on_newMap_clicked()
+{
+    fMapMaker->intitialise();
+    update();
+}
+
+void MapOptions::on_keepButton_clicked()
+{
+    fDFS->setMap(fMapMaker->getMap());
 }
 
 //override standard paintEvent
@@ -49,5 +60,3 @@ void MapOptions::paintEvent(QPaintEvent *)
 
 
 }
-
-

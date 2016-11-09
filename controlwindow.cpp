@@ -26,5 +26,5 @@ void ControlWindow::on_runDFS_clicked()
 
 void ControlWindow::on_mapOptions_clicked()
 {
-    MapOptions * view = new MapOptions(fMapMaker);
+    MapOptions * view = new MapOptions(fMapMaker, fDFS);
 }
