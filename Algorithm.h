@@ -15,6 +15,7 @@ public:
     bool inBounds(std::vector<int> toCheck);
     bool isExplored(std::vector<int> toCheck);
     std::vector<int> findStart();
+    void clearExplored();
 
     //standard getters for class objects
     std::vector<std::vector<int>> getExplored()
@@ -32,11 +33,25 @@ public:
         return fStart;
     }
 
-    void setMap(std::vector<std::vector<int>> map)
+    bool getUpdated()
     {
-        fMap = map;
+        return fUpdated;
     }
 
+    void setMap(std::vector<std::vector<int>> map)
+    {
+        fMap.swap(map);
+    }
+
+    void setStart(std::vector<int> start)
+    {
+        fStart = start;
+    }
+
+    void setUpdated(bool update)
+    {
+        fUpdated = update;
+    }
 
 //objects declared as protected for inheritance
 protected:
@@ -46,6 +61,8 @@ protected:
     std::vector<int> fStart;
     //a list of the coordinates the algorithm has already been to
     std::vector<std::vector<int>> fExplored;
+    //for the GUI
+    bool fUpdated;
 
 };
 

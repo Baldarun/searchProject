@@ -28,6 +28,9 @@ void MapOptions::on_newMap_clicked()
 void MapOptions::on_keepButton_clicked()
 {
     fDFS->setMap(fMapMaker->getMap());
+    fDFS->setStart(fDFS->findStart());
+    fDFS->clearExplored();
+    std::vector<std::vector<int>> output = fDFS->DFSearch(fDFS->getStart());
 }
 
 //override standard paintEvent

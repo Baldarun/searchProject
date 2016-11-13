@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>ControlWindow</class>
- <widget class="QWidget" name="ControlWindow">
+ <widget class="QMainWindow" name="ControlWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,48 +11,51 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>ControlWindow</string>
   </property>
-  <widget class="QPushButton" name="runDFS">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>20</y>
-     <width>291</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Run Depth First Search</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="mapOptions">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>200</y>
-     <width>121</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Display Map Options</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="placeholder">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>60</y>
-     <width>291</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Placeholer</string>
-   </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="runDFS">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Run DFS</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="placeholder">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>20</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>placeholder</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="mapOptions">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>150</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Map Options</string>
+    </property>
+   </widget>
   </widget>
  </widget>
+ <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
 </ui>

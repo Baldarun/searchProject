@@ -35,3 +35,9 @@ std::vector<int> Algorithm::findStart()
         }
 }
 
+//clears the explored track
+void Algorithm::clearExplored()
+{
+    fExplored.clear();
+}
+

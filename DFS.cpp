@@ -13,6 +13,7 @@ DFS::DFS()
             {0, 0, 0, 0, 0, 0, 0, 0}};
 
     fStart = this->findStart();
+    fUpdated = false;
 }
 
 //constructor that would take an input vector to use as the map
@@ -20,6 +21,7 @@ DFS::DFS(std::vector<std::vector<int>> map)
 {
     fMap = map;
     fStart = this->findStart();
+    fUpdated = false;
 }
 
 //this method will perform a depth first search starting at the point given as an argument
