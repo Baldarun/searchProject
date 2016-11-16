@@ -18,11 +18,19 @@ bool Algorithm::inBounds(std::vector<int> toCheck)
 //returns true if the input point has already been explored (is already in the explored vector)
 bool Algorithm::isExplored(std::vector<int> toCheck)
 {
+/*
     for (int i=0; i<fExplored.size(); i++)
     {
         if(toCheck[0]==fExplored[i][0] && toCheck[1]==fExplored[i][1]) return true;
     }
     return false;
+*/
+
+    if(fExplored.empty()==true) return false;
+    else if(fExplored.back()[0]==toCheck[0] && fExplored.back()[1]==toCheck[1]) return true;
+    else return false;
+    //return false;
+
 }
 
 //findStart returns the coordinates that the start point is at within the map
