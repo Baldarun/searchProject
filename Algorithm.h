@@ -2,6 +2,7 @@
 #define ALGORITHM_H
 
 #include <vector>
+
 #include <iostream> //for testing
 
 
@@ -15,7 +16,12 @@ public:
     bool inBounds(std::vector<int> toCheck);
     bool isExplored(std::vector<int> toCheck);
     std::vector<int> findStart();
-    void clearExplored();
+
+    //clears the list of explored points
+    void clearExplored()
+    {
+        fExplored.clear();
+    }
 
     //standard getters for class objects
     std::vector<std::vector<int>> getExplored()
@@ -33,11 +39,6 @@ public:
         return fStart;
     }
 
-    bool getUpdated()
-    {
-        return fUpdated;
-    }
-
     void setMap(std::vector<std::vector<int>> map)
     {
         fMap.swap(map);
@@ -48,10 +49,6 @@ public:
         fStart = start;
     }
 
-    void setUpdated(bool update)
-    {
-        fUpdated = update;
-    }
 
 //objects declared as protected for inheritance
 protected:
@@ -59,10 +56,9 @@ protected:
     std::vector<std::vector<int>> fMap;
     //the point the algorithm will start from. Generally defined by findStart
     std::vector<int> fStart;
-    //a list of the coordinates the algorithm has already been to
+    //a list of the points that the algorithm has already expanded
     std::vector<std::vector<int>> fExplored;
-    //for the GUI
-    bool fUpdated;
+
 
 };
 

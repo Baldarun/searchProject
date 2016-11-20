@@ -13,7 +13,6 @@ DFS::DFS()
             {0, 0, 0, 0, 0, 0, 0, 0}};
 
     fStart = this->findStart();
-    fUpdated = false;
 }
 
 //constructor that would take an input vector to use as the map
@@ -21,73 +20,76 @@ DFS::DFS(std::vector<std::vector<int>> map)
 {
     fMap = map;
     fStart = this->findStart();
-    fUpdated = false;
+}
+
+bool DFS::inFrontier(std::vector<int> toCheck)
+{
+    for (int i=0; i<fFrontier.size(); i++)
+    {
+        if(toCheck[0]==fFrontier[i][0] && toCheck[1]==fFrontier[i][1]) return true;
+    }
+    return false;
 }
 
 //this method will perform a depth first search starting at the point given as an argument
 //it will return a list of coordinate sets that form the path it uses.
 std::vector<std::vector<int>> DFS::DFSearch(std::vector<int> start)
 {
-    //current point has been expanded
+    //return if the goal is found
+    if(fMap[start[0]][start[1]]==2) return fExplored;
+
+    //removes the first element of the frontier unless it's empty
+    //prevents repeatedly searching the same point
+    if (fFrontier.empty()==false) fFrontier.erase(fFrontier.begin());
+    std::cout << start[0] << " " << start[1] << "\n";
+
+    //expands the current point and adds the adjacent points to the
+    //frontier to be explored
+    this->addFrontier(start);
+    //adds the current point to the list of points already explored
     fExplored.push_back(start);
-    //if goal found, return path
-    if(fMap[start[0]][start[1]] == 2) return fExplored;
-    //testing: check what's in the above if
-    std::cout << "start: " << start[0] << " " << start[1] << "\n"
-              << "startValue: " << fMap[start[0]][start[1]] << "\n";
-    //output current location and its value for testing
-    //std::cout << "current: " << start[0] << " " << start[1] << "\n";
-    //std::cout << fMap[start[0]][start[1]] << "\n";
 
-    //No good variable to loop over, so the four "next" values and their if statements are
-    //for checking the direct neighbours of the start point
-    std::vector<int> next = {start[0]+1, start[1]};
-    //testing: output coordinates of next and its value
-    std::cout << "nextdown: " << next[0] << " " << next[1] << "\n";
-    if(inBounds(next)) std::cout << "value: " << fMap[next[0]][next[1]] << "\n";
+    //iterates the algorithm until a goal is found
+    DFSearch(fFrontier.front());
 
-
-    //checks that this neighbour is both within the map, hasn't already been explored,
-    //and doesn't contain an obstacle
-    if(inBounds(next)==true && isExplored(next)==false && fMap[next[0]][next[1]] != 3)
-    {
-
-        //iterates the algorithm. This will progress through the map and create
-        //the path to return
-        return DFSearch(next);
-    }
-
-    next[0] = start[0]; next[1] = start[1]+1;
-    //testing: output coordinates of next and its value
-    std::cout << "nextright: " << next[0] << " " << next[1] << "\n";
-    if(inBounds(next)) std::cout << "value: " << fMap[next[0]][next[1]] << "\n";
-
-    if(inBounds(next)==true && isExplored(next)==false && fMap[next[0]][next[1]] != 3)
-    {
-        return DFSearch(next);
-    }
-
-    next[0] = start[0]-1; next[1] = start[1];
-    //testing: output coordinates of next and its value
-    std::cout << "nextup: " << next[0] << " " << next[1] << "\n";
-    if(inBounds(next)) std::cout << "value: " << fMap[next[0]][next[1]] << "\n";
-
-    if(inBounds(next)==true && isExplored(next)==false && fMap[next[0]][next[1]] != 3)
-    {
-        std::cout << "test" << "\n";
-        return DFSearch(next);
-    }
-
-    next[0] = start[0]; next[1] = start[1]-1;
-    //testing: output coordinates of next and its value
-    std::cout << "nextleft: " << next[0] << " " << next[1] << "\n";
-    if(inBounds(next)) std::cout << "value: " << fMap[next[0]][next[1]] << "\n";
-
-    if(inBounds(next)==true && isExplored(next)==false && fMap[next[0]][next[1]] != 3)
-    {
-        return DFSearch(next);
-    }
-    //if the entire map has been searched and no goal found, the algorithm returns
-    //an empty vector
-    else return std::vector<std::vector<int>>();
 }
+
+void DFS::addFrontier(std::vector<int> point)
+{
+    //No easy and clean way to iterate over the four adjacent points,
+    //so done manually
+    std::vector<int> next = {point[0]+1, point[1]};
+
+    //checks that this neighbour is both within the map, hasn't already
+    //been explored, and doesn't contain an obstacle
+    if(inBounds(next)==true && isExplored(next)==false && inFrontier(next)==false
+            && fMap[next[0]][next[1]] != 3)
+    {
+        fFrontier.push_back(next);
+    }
+
+    next[0] = point[0]; next[1] = point[1]+1;
+
+    if(inBounds(next)==true && isExplored(next)==false && inFrontier(next)==false
+            && fMap[next[0]][next[1]] != 3)
+    {
+        fFrontier.push_back(next);
+    }
+
+    next[0] = point[0]-1; next[1] = point[1];
+
+    if(inBounds(next)==true && isExplored(next)==false && inFrontier(next)==false
+            && fMap[next[0]][next[1]] != 3)
+    {
+        fFrontier.push_back(next);
+    }
+
+    next[0] = point[0]; next[1] = point[1]-1;
+
+    if(inBounds(next)==true && isExplored(next)==false && inFrontier(next)==false
+            && fMap[next[0]][next[1]] != 3)
+    {
+        fFrontier.push_back(next);
+    }
+}
+
