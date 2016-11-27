@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MapOptions</class>
- <widget class="QWidget" name="MapOptions">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,30 +13,30 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="newMap">
+  <widget class="QToolButton" name="toolButton">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>101</width>
-     <height>23</height>
+     <x>140</x>
+     <y>150</y>
+     <width>25</width>
+     <height>19</height>
     </rect>
    </property>
    <property name="text">
-    <string>Generate New Map</string>
+    <string>...</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="keepButton">
+  <widget class="QCommandLinkButton" name="commandLinkButton">
    <property name="geometry">
     <rect>
-     <x>154</x>
-     <y>10</y>
-     <width>91</width>
-     <height>23</height>
+     <x>180</x>
+     <y>70</y>
+     <width>172</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
-    <string>Keep This Map</string>
+    <string>CommandLinkButton</string>
    </property>
   </widget>
  </widget>

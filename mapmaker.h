@@ -1,7 +1,7 @@
 #ifndef MAPMAKER_H
 #define MAPMAKER_H
 
-#include <Algorithm.h>
+#include <algorithm.h>
 #include <vector>
 #include <stdlib.h>
 #include <time.h>

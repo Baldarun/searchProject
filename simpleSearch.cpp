@@ -1,7 +1,7 @@
-#include "DFS.h"
+#include "simpleSearch.h"
 
 //default constructor uses a pre-defined map
-DFS::DFS()
+SimpleSearch::SimpleSearch()
 {
     fMap = {{0, 0, 0, 0, 0, 0, 1, 0},
             {0, 3, 3, 0, 0, 0, 0, 0},
@@ -16,32 +16,26 @@ DFS::DFS()
 }
 
 //constructor that would take an input vector to use as the map
-DFS::DFS(std::vector<std::vector<int>> map)
+SimpleSearch::SimpleSearch(std::vector<std::vector<int>> map)
 {
     fMap = map;
     fStart = this->findStart();
 }
 
-bool DFS::inFrontier(std::vector<int> toCheck)
-{
-    for (int i=0; i<fFrontier.size(); i++)
-    {
-        if(toCheck[0]==fFrontier[i][0] && toCheck[1]==fFrontier[i][1]) return true;
-    }
-    return false;
-}
-
 //this method will perform a depth first search starting at the point given as an argument
 //it will return a list of coordinate sets that form the path it uses.
-std::vector<std::vector<int>> DFS::DFSearch(std::vector<int> start)
+std::vector<std::vector<int>> SimpleSearch::DFSearch(std::vector<int> start)
 {
     //return if the goal is found
-    if(fMap[start[0]][start[1]]==2) return fExplored;
+    if(fMap[start[0]][start[1]]==2)
+    {
+        fExplored.push_back(start);
+        return fExplored;
 
+    }
     //removes the first element of the frontier unless it's empty
     //prevents repeatedly searching the same point
-    if (fFrontier.empty()==false) fFrontier.erase(fFrontier.begin());
-    std::cout << start[0] << " " << start[1] << "\n";
+    if (fFrontier.empty()==false) fFrontier.erase(fFrontier.end());
 
     //expands the current point and adds the adjacent points to the
     //frontier to be explored
@@ -50,11 +44,38 @@ std::vector<std::vector<int>> DFS::DFSearch(std::vector<int> start)
     fExplored.push_back(start);
 
     //iterates the algorithm until a goal is found
-    DFSearch(fFrontier.front());
+    return DFSearch(fFrontier.back());
 
 }
 
-void DFS::addFrontier(std::vector<int> point)
+//this method will perform a breadth first search starting at the point given as an argument
+//it will return a list of coordinate sets that form the path it uses.
+//method is identical do DFSearch, though using queue logic rather than stack logic
+std::vector<std::vector<int>> SimpleSearch::BFSearch(std::vector<int> start)
+{
+    //return if the goal is found
+    if(fMap[start[0]][start[1]]==2)
+    {
+        fExplored.push_back(start);
+        return fExplored;
+
+    }
+    //removes the first element of the frontier unless it's empty
+    //prevents repeatedly searching the same point
+    if (fFrontier.empty()==false) fFrontier.erase(fFrontier.begin());
+
+    //expands the current point and adds the adjacent points to the
+    //frontier to be explored
+    this->addFrontier(start);
+    //adds the current point to the list of points already explored
+    fExplored.push_back(start);
+
+    //iterates the algorithm until a goal is found
+    return DFSearch(fFrontier.front());
+
+}
+
+void SimpleSearch::addFrontier(std::vector<int> point)
 {
     //No easy and clean way to iterate over the four adjacent points,
     //so done manually

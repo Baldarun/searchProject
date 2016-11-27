@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'displaywindow.ui'
+** Form generated from reading UI file 'bfswindow.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_DISPLAYWINDOW_H
-#define UI_DISPLAYWINDOW_H
+#ifndef UI_BFSWINDOW_H
+#define UI_BFSWINDOW_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -18,32 +18,32 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_DisplayWindow
+class Ui_BFSWindow
 {
 public:
 
-    void setupUi(QWidget *DisplayWindow)
+    void setupUi(QWidget *BFSWindow)
     {
-        if (DisplayWindow->objectName().isEmpty())
-            DisplayWindow->setObjectName(QStringLiteral("DisplayWindow"));
-        DisplayWindow->resize(400, 300);
+        if (BFSWindow->objectName().isEmpty())
+            BFSWindow->setObjectName(QStringLiteral("BFSWindow"));
+        BFSWindow->resize(400, 300);
 
-        retranslateUi(DisplayWindow);
+        retranslateUi(BFSWindow);
 
-        QMetaObject::connectSlotsByName(DisplayWindow);
+        QMetaObject::connectSlotsByName(BFSWindow);
     } // setupUi
 
-    void retranslateUi(QWidget *DisplayWindow)
+    void retranslateUi(QWidget *BFSWindow)
     {
-        DisplayWindow->setWindowTitle(QApplication::translate("DisplayWindow", "Form", 0));
+        BFSWindow->setWindowTitle(QApplication::translate("BFSWindow", "Form", 0));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class DisplayWindow: public Ui_DisplayWindow {};
+    class BFSWindow: public Ui_BFSWindow {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_DISPLAYWINDOW_H
+#endif // UI_BFSWINDOW_H

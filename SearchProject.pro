@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-10-31T18:34:51
+# Project created by QtCreator 2016-11-13T13:52:25
 #
 #-------------------------------------------------
 
@@ -8,32 +8,33 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Project2
+TARGET = SearchProject
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
         controlwindow.cpp \
-    Algorithm.cpp \
-    DFS.cpp \
     displaywindow.cpp \
+    mapoptions.cpp \
     astar.cpp \
     mapmaker.cpp \
-    mapoptions.cpp \
-    mapwindow.cpp
+    simpleSearch.cpp \
+    Algorithm.cpp \
+    bfswindow.cpp \
+    astarwindow.cpp
 
 HEADERS  += controlwindow.h \
-    Algorithm.h \
-    DFS.h \
     displaywindow.h \
+    mapoptions.h \
     astar.h \
     mapmaker.h \
-    mapoptions.h \
-    mapwindow.h
+    simpleSearch.h \
+    Algorithm.h \
+    bfswindow.h \
+    astarwindow.h
 
 FORMS    += controlwindow.ui \
     displaywindow.ui \
     mapoptions.ui \
-    form.ui
-
-DISTFILES +=
+    bfswindow.ui \
+    astarwindow.ui

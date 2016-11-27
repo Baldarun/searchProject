@@ -2,8 +2,9 @@
 #define CONTROLWINDOW_H
 
 #include <QMainWindow>
-#include <DFS.h>
+#include <simpleSearch.h>
 #include <mapmaker.h>
+#include <astar.h>
 
 namespace Ui {
 class ControlWindow;
@@ -15,20 +16,24 @@ class ControlWindow : public QMainWindow
 
     //constructor and destructor declaration
 public:
-    explicit ControlWindow(DFS * dfs, MapMaker * map, QWidget *parent = 0);
+    explicit ControlWindow(SimpleSearch * dfs, SimpleSearch * bfs, AStar * a, MapMaker * map, QWidget *parent = 0);
     ~ControlWindow();
 
     //slot declared for objects made in the .ui form
 private slots:
 
     void on_runDFS_clicked();
+    void on_runBFS_clicked();
+    void on_runAStar_clicked();
     void on_mapOptions_clicked();
 
 private:
     Ui::ControlWindow *ui;
 
     //DFS to be used declared as a pointer to the input
-    DFS * fDFS;
+    SimpleSearch * fDFS;
+    SimpleSearch * fBFS;
+    AStar * fAStar;
     MapMaker * fMapMaker;
 
 };

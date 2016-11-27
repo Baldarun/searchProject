@@ -1,7 +1,8 @@
 #include <ControlWindow.h>
 #include <QApplication>
-#include <DFS.h>
+#include <simpleSearch.h>
 #include <mapmaker.h>
+#include <astar.h>
 
 #include <sstream>  //testing
 #include <iostream> //testing
@@ -10,9 +11,11 @@ int main(int argc, char *argv[])
 {
 
     QApplication a(argc, argv);
-    DFS dfs;                //declares a default DFS object
+    SimpleSearch bfs;                //declares a default DFS object
+    SimpleSearch dfs;
+    AStar aStar;
     MapMaker map;
-    ControlWindow w (&dfs, &map); //creates a ControlWindow with that as input
+    ControlWindow w (&bfs, &dfs, &aStar, &map); //creates a ControlWindow with that as input
     w.show();               //displays the control window
 
     //testing: prints out the map being used to the console

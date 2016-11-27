@@ -1,0 +1,17 @@
+INPUT(
+./debug\main.o
+./debug\controlwindow.o
+./debug\displaywindow.o
+./debug\mapoptions.o
+./debug\astar.o
+./debug\mapmaker.o
+./debug\simpleSearch.o
+./debug\Algorithm.o
+./debug\bfswindow.o
+./debug\astarwindow.o
+./debug\moc_controlwindow.o
+./debug\moc_displaywindow.o
+./debug\moc_mapoptions.o
+./debug\moc_bfswindow.o
+./debug\moc_astarwindow.o
+);

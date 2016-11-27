@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'displaywindow.ui'
+** Form generated from reading UI file 'astarwindow.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_DISPLAYWINDOW_H
-#define UI_DISPLAYWINDOW_H
+#ifndef UI_ASTARWINDOW_H
+#define UI_ASTARWINDOW_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -18,32 +18,32 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_DisplayWindow
+class Ui_AStarWindow
 {
 public:
 
-    void setupUi(QWidget *DisplayWindow)
+    void setupUi(QWidget *AStarWindow)
     {
-        if (DisplayWindow->objectName().isEmpty())
-            DisplayWindow->setObjectName(QStringLiteral("DisplayWindow"));
-        DisplayWindow->resize(400, 300);
+        if (AStarWindow->objectName().isEmpty())
+            AStarWindow->setObjectName(QStringLiteral("AStarWindow"));
+        AStarWindow->resize(400, 300);
 
-        retranslateUi(DisplayWindow);
+        retranslateUi(AStarWindow);
 
-        QMetaObject::connectSlotsByName(DisplayWindow);
+        QMetaObject::connectSlotsByName(AStarWindow);
     } // setupUi
 
-    void retranslateUi(QWidget *DisplayWindow)
+    void retranslateUi(QWidget *AStarWindow)
     {
-        DisplayWindow->setWindowTitle(QApplication::translate("DisplayWindow", "Form", 0));
+        AStarWindow->setWindowTitle(QApplication::translate("AStarWindow", "Form", 0));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class DisplayWindow: public Ui_DisplayWindow {};
+    class AStarWindow: public Ui_AStarWindow {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_DISPLAYWINDOW_H
+#endif // UI_ASTARWINDOW_H
