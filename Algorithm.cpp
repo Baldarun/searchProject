@@ -34,3 +34,12 @@ std::vector<int> Algorithm::findStart()
             if (fMap[i][j] == 1) return std::vector<int>{i, j};
         }
 }
+
+bool Algorithm::inFrontier(std::vector<int> toCheck)
+{
+    for (int i=0; i<fFrontier.size(); i++)
+    {
+        if(toCheck[0]==fFrontier[i][0] && toCheck[1]==fFrontier[i][1]) return true;
+    }
+    return false;
+}

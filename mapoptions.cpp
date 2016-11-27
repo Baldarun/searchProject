@@ -3,9 +3,9 @@
 
 #include <QPainter>
 
-MapOptions::MapOptions(MapMaker * map, DFS *dfs, QWidget *parent) :
+MapOptions::MapOptions(MapMaker * map, SimpleSearch * dfs, SimpleSearch * bfs, AStar * aStar, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::MapOptions), fMapMaker(map), fDFS(dfs)
+    ui(new Ui::MapOptions), fMapMaker(map), fDFS(dfs), fBFS(bfs), fAStar(aStar)
 {
     ui->setupUi(this);
 
@@ -31,6 +31,16 @@ void MapOptions::on_keepButton_clicked()
     fDFS->setStart(fDFS->findStart());
     fDFS->clearExplored();
     std::vector<std::vector<int>> output = fDFS->DFSearch(fDFS->getStart());
+
+    fBFS->setMap(fMapMaker->getMap());
+    fBFS->setStart(fBFS->findStart());
+    fBFS->clearExplored();
+    output = fBFS->BFSearch(fBFS->getStart());
+
+    fAStar->setMap(fMapMaker->getMap());
+    fAStar->setStart(fAStar->findStart());
+    fAStar->clearExplored();
+    output = fAStar->AStarSearch(fAStar->getStart());
 }
 
 //override standard paintEvent

@@ -2,7 +2,7 @@
 #define DISPLAYWINDOW_H
 
 #include <QWidget>
-#include <DFS.h>
+#include <simpleSearch.h>
 
 namespace Ui {
 class DisplayWindow;
@@ -14,7 +14,7 @@ class DisplayWindow : public QWidget
 
 public:
     //constructor and destructor
-    explicit DisplayWindow(DFS * dfs, QWidget *parent = 0);
+    explicit DisplayWindow(SimpleSearch * dfs, QWidget *parent = 0);
     ~DisplayWindow();
 
 private slots:
@@ -24,7 +24,7 @@ private:
     //same private variables as ControlWindow
     Ui::DisplayWindow *ui;
 
-    DFS * fDFS;
+    SimpleSearch * fDFS;
 };
 
 #endif // DISPLAYWINDOW_H

@@ -27,23 +27,23 @@
      <string>Run DFS</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="placeholder">
+   <widget class="QPushButton" name="runBFS">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>300</x>
       <y>20</y>
       <width>75</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>placeholder</string>
+     <string>Run BFS</string>
     </property>
    </widget>
    <widget class="QPushButton" name="mapOptions">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>130</x>
       <y>150</y>
       <width>131</width>
       <height>31</height>
@@ -51,6 +51,19 @@
     </property>
     <property name="text">
      <string>Map Options</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="runAStar">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>20</y>
+      <width>91</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Run A* Search</string>
     </property>
    </widget>
   </widget>

@@ -16,19 +16,25 @@ SOURCES += main.cpp\
         controlwindow.cpp \
     displaywindow.cpp \
     mapoptions.cpp \
-    Algorithm.cpp \
     astar.cpp \
-    DFS.cpp \
-    mapmaker.cpp
+    mapmaker.cpp \
+    simpleSearch.cpp \
+    Algorithm.cpp \
+    bfswindow.cpp \
+    astarwindow.cpp
 
 HEADERS  += controlwindow.h \
     displaywindow.h \
     mapoptions.h \
-    Algorithm.h \
     astar.h \
-    DFS.h \
-    mapmaker.h
+    mapmaker.h \
+    simpleSearch.h \
+    Algorithm.h \
+    bfswindow.h \
+    astarwindow.h
 
 FORMS    += controlwindow.ui \
     displaywindow.ui \
-    mapoptions.ui
+    mapoptions.ui \
+    bfswindow.ui \
+    astarwindow.ui

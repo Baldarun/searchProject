@@ -25,8 +25,9 @@ class Ui_ControlWindow
 public:
     QWidget *centralWidget;
     QPushButton *runDFS;
-    QPushButton *placeholder;
+    QPushButton *runBFS;
     QPushButton *mapOptions;
+    QPushButton *runAStar;
 
     void setupUi(QMainWindow *ControlWindow)
     {
@@ -38,12 +39,15 @@ public:
         runDFS = new QPushButton(centralWidget);
         runDFS->setObjectName(QStringLiteral("runDFS"));
         runDFS->setGeometry(QRect(20, 20, 75, 23));
-        placeholder = new QPushButton(centralWidget);
-        placeholder->setObjectName(QStringLiteral("placeholder"));
-        placeholder->setGeometry(QRect(110, 20, 75, 23));
+        runBFS = new QPushButton(centralWidget);
+        runBFS->setObjectName(QStringLiteral("runBFS"));
+        runBFS->setGeometry(QRect(300, 20, 75, 23));
         mapOptions = new QPushButton(centralWidget);
         mapOptions->setObjectName(QStringLiteral("mapOptions"));
-        mapOptions->setGeometry(QRect(120, 150, 131, 31));
+        mapOptions->setGeometry(QRect(130, 150, 131, 31));
+        runAStar = new QPushButton(centralWidget);
+        runAStar->setObjectName(QStringLiteral("runAStar"));
+        runAStar->setGeometry(QRect(150, 20, 91, 23));
         ControlWindow->setCentralWidget(centralWidget);
 
         retranslateUi(ControlWindow);
@@ -55,8 +59,9 @@ public:
     {
         ControlWindow->setWindowTitle(QApplication::translate("ControlWindow", "ControlWindow", 0));
         runDFS->setText(QApplication::translate("ControlWindow", "Run DFS", 0));
-        placeholder->setText(QApplication::translate("ControlWindow", "placeholder", 0));
+        runBFS->setText(QApplication::translate("ControlWindow", "Run BFS", 0));
         mapOptions->setText(QApplication::translate("ControlWindow", "Map Options", 0));
+        runAStar->setText(QApplication::translate("ControlWindow", "Run A* Search", 0));
     } // retranslateUi
 
 };

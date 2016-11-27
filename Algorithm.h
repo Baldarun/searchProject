@@ -16,6 +16,7 @@ public:
     bool inBounds(std::vector<int> toCheck);
     bool isExplored(std::vector<int> toCheck);
     std::vector<int> findStart();
+    bool inFrontier(std::vector<int>);
 
     //clears the list of explored points
     void clearExplored()
@@ -58,7 +59,8 @@ protected:
     std::vector<int> fStart;
     //a list of the points that the algorithm has already expanded
     std::vector<std::vector<int>> fExplored;
-
+    //A vector of points to expand. Treated such that it functions as a queue or stack
+    std::vector<std::vector<int>> fFrontier;
 
 };
 
