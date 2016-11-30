@@ -16,7 +16,7 @@ public:
     bool inBounds(std::vector<int> toCheck);
     bool isExplored(std::vector<int> toCheck);
     std::vector<int> findStart();
-    bool inFrontier(std::vector<int>);
+    virtual bool inFrontier(std::vector<int>);
 
     //clears the list of explored points
     void clearExplored()
