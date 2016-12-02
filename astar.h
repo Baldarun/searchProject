@@ -36,7 +36,7 @@ public:
     //A declaration for a method to find the minimum heuristic value of values in the current frontier
     int maxFHeur();
 
-    void sortFrontier();
+    std::vector<hCoord> sortFrontier();
 
 
 

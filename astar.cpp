@@ -64,14 +64,60 @@ int AStar::maxFHeur()
     return max;
 }
 
-void AStar::sortFrontier()
+std::vector<hCoord> AStar::sortFrontier()
 {
+    /*
+    int i, j, k;
+    for(k=0; k<fFrontier.size(); k++)
+    {
+        tempH.push_back(fFrontier[k].getHeur());
+
+    }
+    tempH.push_back(2);
+
+    std::sort(tempH.begin(), tempH.end());
+
+    try
+    {
+        for(i=0; i<tempH.size(); i++)
+                {
+                    for(j=0; j<fFrontier.size(); j++)
+                    {
+                        std::cout << i << " " << j << " " << k << "\n";
+                        if(tempH[i]==fFrontier[j].getHeur())
+                        {
+                            tempFront.push_back(fFrontier[j]);
+                        }
+                    }
+                }
+                fFrontier.clear();
+                fFrontier.swap(tempFront);
+                tempH.clear();
+                tempFront.clear();
+    }
+    catch(std::bad_alloc& ba)
+    {
+        std::cout << i << " " << j << "\n";
+        throw std::bad_alloc();
+    }
+*/
+    tempH.clear();
+    tempFront.clear();
+
     for(int i=0; i<fFrontier.size(); i++)
     {
         tempH.push_back(fFrontier[i].getHeur());
-    }
+        std::cout << tempH[i] << " " << fFrontier[i].getHeur() << "\n";
+        //std::cout << "fucky: " << fFrontier.size() << " " << fFrontier[i].getHeur() << "\n";
 
+    }
     std::sort(tempH.begin(), tempH.end());
+
+    for(int i=0; i< tempH.size(); i++)
+    {
+        //std::cout << tempH[i] << " ";
+    }
+    //std::cout << "\n";
 
     for(int i=0; i<tempH.size(); i++)
     {
@@ -79,13 +125,30 @@ void AStar::sortFrontier()
         {
             if(tempH[i]==fFrontier[j].getHeur())
             {
+                //std::cout << "yes" << "\n";
                 tempFront.push_back(fFrontier[j]);
+
             }
         }
     }
-    fFrontier.swap(tempFront);
-    tempH.clear();
-    tempFront.clear();
+
+    for(int i=0; i< tempFront.size(); i++)
+    {
+        std::cout << tempFront[i].getHeur() << " ";
+    }
+    std::cout << "\n";
+
+    std::cout << fFrontier.size() << "\n";
+
+
+    for(int i=0; i< fFrontier.size(); i++)
+    {
+        std::cout << fFrontier[i].getHeur() << " ";
+    }
+    //std::cout << "\n";
+
+    return tempFront;
+
 }
 
 
@@ -109,7 +172,9 @@ std::vector<std::vector<int>> AStar::AStarSearch(std::vector<int> start)
     //frontier to be explored
     this->addFrontier(start);
 
-    this->sortFrontier();
+    std::vector<hCoord> dummy = this->sortFrontier();
+    fFrontier.swap(dummy); //Something goes horribly wrong exactly here. Not sure why
+    dummy.clear();
 
     //adds the current point to the list of points already explored
     fExplored.push_back(start);
