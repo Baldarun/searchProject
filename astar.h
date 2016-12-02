@@ -1,6 +1,10 @@
 #ifndef ASTAR_H
 #define ASTAR_H
+
 #include <algorithm.h>
+#include <hcoord.h>
+#include <algorithm>
+
 //#include <math.h>
 //#include <climits>
 
@@ -24,16 +28,27 @@ public:
     //declares method to find the coordinates of the objective in a map
     std::vector<int> findGoal();
 
+    bool inFrontier(std::vector<int>);
+
     //method to add values to the frontier
     void addFrontier(std::vector<int>);
+
+    //A declaration for a method to find the minimum heuristic value of values in the current frontier
+    int maxFHeur();
+
+    void sortFrontier();
+
+
+
 
 private:
     //due to using heuristic, A* uniquely needs to store the goal
     std::vector<int> fGoal;
 
-    std::vector<int> tempHeuristics;
+    std::vector<hCoord> fFrontier;
 
-    std::vector<std::vector<int>> tempFrontier;
+    std::vector<int> tempH;
+    std::vector<hCoord> tempFront;
 
 };
 

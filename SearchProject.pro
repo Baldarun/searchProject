@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     simpleSearch.cpp \
     Algorithm.cpp \
     bfswindow.cpp \
-    astarwindow.cpp
+    astarwindow.cpp \
+    hcoord.cpp
 
 HEADERS  += controlwindow.h \
     displaywindow.h \
@@ -31,10 +32,13 @@ HEADERS  += controlwindow.h \
     simpleSearch.h \
     Algorithm.h \
     bfswindow.h \
-    astarwindow.h
+    astarwindow.h \
+    hcoord.h
 
 FORMS    += controlwindow.ui \
     displaywindow.ui \
     mapoptions.ui \
     bfswindow.ui \
     astarwindow.ui
+
+CONFIG += c++11
