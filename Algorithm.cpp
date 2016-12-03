@@ -35,6 +35,20 @@ std::vector<int> Algorithm::findStart()
         }
 }
 
+//findGoal returns the coordinates that the goal point is at within the map
+std::vector<int> Algorithm::findGoal()
+{
+
+    for(int i=0; i<fMap.size(); i++)
+        for(int j=0; j<fMap[i].size(); j++)
+        {
+            if (fMap[i][j] == 2)
+            {
+                return std::vector<int>{i, j};
+            }
+        }
+}
+
 bool Algorithm::inFrontier(std::vector<int> toCheck)
 {
     for (int i=0; i<fFrontier.size(); i++)

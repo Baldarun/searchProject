@@ -31,124 +31,14 @@ int AStar::heuristic(std::vector<int> point)
     return abs(point[0]-fGoal[0]) + abs(point[1] - fGoal[1]);
 }
 
-//findGoal returns the coordinates that the goal point is at within the map
-std::vector<int> AStar::findGoal()
-{
-    for(int i=0; i<fMap.size(); i++)
-        for(int j=0; j<fMap[i].size(); j++)
-        {
-            if (fMap[i][j] == 2) return std::vector<int>{i, j};
-        }
-}
-
 bool AStar::inFrontier(std::vector<int> toCheck)
 {
     for (int i=0; i<fFrontier.size(); i++)
     {
-        if(toCheck[0]==fFrontier[i].getPoint()[0] && toCheck[1]==fFrontier[i].getPoint()[1]) return true;
+        if(toCheck[0]==fFrontier[i].getPoint()[0] &&
+                toCheck[1]==fFrontier[i].getPoint()[1]) return true;
     }
     return false;
-}
-
-
-int AStar::maxFHeur()
-{
-    int max = INT_MIN;
-    if(!fFrontier.empty())
-    {
-        for(int i=0; i<fFrontier.size(); i++)
-        {
-            if(heuristic(fFrontier[i].getPoint()) > max) max = heuristic(fFrontier[i].getPoint());
-        }
-    }
-    return max;
-}
-
-std::vector<hCoord> AStar::sortFrontier()
-{
-    /*
-    int i, j, k;
-    for(k=0; k<fFrontier.size(); k++)
-    {
-        tempH.push_back(fFrontier[k].getHeur());
-
-    }
-    tempH.push_back(2);
-
-    std::sort(tempH.begin(), tempH.end());
-
-    try
-    {
-        for(i=0; i<tempH.size(); i++)
-                {
-                    for(j=0; j<fFrontier.size(); j++)
-                    {
-                        std::cout << i << " " << j << " " << k << "\n";
-                        if(tempH[i]==fFrontier[j].getHeur())
-                        {
-                            tempFront.push_back(fFrontier[j]);
-                        }
-                    }
-                }
-                fFrontier.clear();
-                fFrontier.swap(tempFront);
-                tempH.clear();
-                tempFront.clear();
-    }
-    catch(std::bad_alloc& ba)
-    {
-        std::cout << i << " " << j << "\n";
-        throw std::bad_alloc();
-    }
-*/
-    tempH.clear();
-    tempFront.clear();
-
-    for(int i=0; i<fFrontier.size(); i++)
-    {
-        tempH.push_back(fFrontier[i].getHeur());
-        std::cout << tempH[i] << " " << fFrontier[i].getHeur() << "\n";
-        //std::cout << "fucky: " << fFrontier.size() << " " << fFrontier[i].getHeur() << "\n";
-
-    }
-    std::sort(tempH.begin(), tempH.end());
-
-    for(int i=0; i< tempH.size(); i++)
-    {
-        //std::cout << tempH[i] << " ";
-    }
-    //std::cout << "\n";
-
-    for(int i=0; i<tempH.size(); i++)
-    {
-        for(int j=0; j<fFrontier.size(); j++)
-        {
-            if(tempH[i]==fFrontier[j].getHeur())
-            {
-                //std::cout << "yes" << "\n";
-                tempFront.push_back(fFrontier[j]);
-
-            }
-        }
-    }
-
-    for(int i=0; i< tempFront.size(); i++)
-    {
-        std::cout << tempFront[i].getHeur() << " ";
-    }
-    std::cout << "\n";
-
-    std::cout << fFrontier.size() << "\n";
-
-
-    for(int i=0; i< fFrontier.size(); i++)
-    {
-        std::cout << fFrontier[i].getHeur() << " ";
-    }
-    //std::cout << "\n";
-
-    return tempFront;
-
 }
 
 
@@ -161,6 +51,8 @@ std::vector<std::vector<int>> AStar::AStarSearch(std::vector<int> start)
     if(fMap[start[0]][start[1]]==2)
     {
         fExplored.push_back(start);
+        fFrontier.clear();
+        fGoal.clear();
         return fExplored;
 
     }
@@ -171,10 +63,6 @@ std::vector<std::vector<int>> AStar::AStarSearch(std::vector<int> start)
     //expands the current point and adds the adjacent points to the
     //frontier to be explored
     this->addFrontier(start);
-
-    std::vector<hCoord> dummy = this->sortFrontier();
-    fFrontier.swap(dummy); //Something goes horribly wrong exactly here. Not sure why
-    dummy.clear();
 
     //adds the current point to the list of points already explored
     fExplored.push_back(start);
@@ -187,7 +75,8 @@ std::vector<std::vector<int>> AStar::AStarSearch(std::vector<int> start)
 //differs from the simpleSearch in that it includes a heuristic value
 void AStar::addFrontier(std::vector<int> point)
 {
-    //std::vector<hCoord> tempFrontier;
+    std::vector<hCoord> tempFront;
+    std::vector<int> tempH;
 
     //No easy and clean way to iterate over the four adjacent points,
     //so done manually
@@ -199,7 +88,7 @@ void AStar::addFrontier(std::vector<int> point)
             && fMap[next[0]][next[1]] != 3)
     {
         hCoord temp(next, heuristic(next));
-        fFrontier.push_back(temp);
+        tempFront.push_back(temp);
     }
 
     next[0] = point[0]; next[1] = point[1]+1;
@@ -208,7 +97,7 @@ void AStar::addFrontier(std::vector<int> point)
             && fMap[next[0]][next[1]] != 3)
     {
         hCoord temp(next, heuristic(next));
-        fFrontier.push_back(temp);
+        tempFront.push_back(temp);
     }
 
     next[0] = point[0]-1; next[1] = point[1];
@@ -217,7 +106,7 @@ void AStar::addFrontier(std::vector<int> point)
             && fMap[next[0]][next[1]] != 3)
     {
         hCoord temp(next, heuristic(next));
-        fFrontier.push_back(temp);
+        tempFront.push_back(temp);
     }
 
     next[0] = point[0]; next[1] = point[1]-1;
@@ -226,27 +115,39 @@ void AStar::addFrontier(std::vector<int> point)
             && fMap[next[0]][next[1]] != 3)
     {
         hCoord temp(next, heuristic(next));
-        fFrontier.push_back(temp);
+        tempFront.push_back(temp);
     }
 
-/*
-    while(!tempFrontier.empty())
+
+    for(int i=0; i<fFrontier.size(); i++)
     {
-        int max = INT_MIN;
-        for (int i=0; i<tempFrontier.size(); i++)
+        tempFront.push_back(fFrontier[i]);
+    }
+
+    fFrontier.clear();
+
+    for(int i=0; i<tempFront.size(); i++)
+    {
+        tempH.push_back(tempFront[i].getHeur());
+    }
+
+    std::sort(tempH.begin(), tempH.end());
+
+    for(int i=0; i<tempH.size(); i++)
+    {
+        for(int j=0; j<tempFront.size(); j++)
         {
-            if (tempFrontier[i].getHeur()>=max)
+            if(tempH[i]==tempFront[j].getHeur())
             {
-                max = i;
+                fFrontier.push_back(tempFront[j]);
+                tempFront.erase(tempFront.begin()+j);
 
             }
         }
-
-        fFrontier.push_back(tempFrontier[max]);
-        tempFrontier.erase(tempFrontier.begin()+max);
-
     }
-*/
+    tempFront.clear();
+    tempH.clear();
+
 }
 
 

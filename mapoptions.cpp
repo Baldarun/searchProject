@@ -37,6 +37,7 @@ void MapOptions::on_keepButton_clicked()
 
     fAStar->setMap(fMapMaker->getMap());
     fAStar->setStart(fAStar->findStart());
+    fAStar->setGoal(fAStar->findGoal());
     fAStar->clearExplored();
 }
 

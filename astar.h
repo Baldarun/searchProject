@@ -4,9 +4,7 @@
 #include <algorithm.h>
 #include <hcoord.h>
 #include <algorithm>
-
-//#include <math.h>
-//#include <climits>
+#include <math.h>
 
 //child class of Algorithm
 class AStar: public Algorithm
@@ -25,30 +23,18 @@ public:
     //the heuristic calculator, which calculates the distance between a point and the goal
     int heuristic(std::vector<int> point);
 
-    //declares method to find the coordinates of the objective in a map
-    std::vector<int> findGoal();
-
     bool inFrontier(std::vector<int>);
 
     //method to add values to the frontier
     void addFrontier(std::vector<int>);
 
-    //A declaration for a method to find the minimum heuristic value of values in the current frontier
-    int maxFHeur();
-
-    std::vector<hCoord> sortFrontier();
-
-
-
 
 private:
-    //due to using heuristic, A* uniquely needs to store the goal
-    std::vector<int> fGoal;
 
     std::vector<hCoord> fFrontier;
 
-    std::vector<int> tempH;
-    std::vector<hCoord> tempFront;
+    //std::vector<int> tempH;
+    //std::vector<hCoord> tempFront;
 
 };
 
