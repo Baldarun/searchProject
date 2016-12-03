@@ -30,17 +30,15 @@ void MapOptions::on_keepButton_clicked()
     fDFS->setMap(fMapMaker->getMap());
     fDFS->setStart(fDFS->findStart());
     fDFS->clearExplored();
-    std::vector<std::vector<int>> output = fDFS->DFSearch(fDFS->getStart());
 
     fBFS->setMap(fMapMaker->getMap());
     fBFS->setStart(fBFS->findStart());
     fBFS->clearExplored();
-    output = fBFS->BFSearch(fBFS->getStart());
 
     fAStar->setMap(fMapMaker->getMap());
     fAStar->setStart(fAStar->findStart());
+    fAStar->setGoal(fAStar->findGoal());
     fAStar->clearExplored();
-    output = fAStar->AStarSearch(fAStar->getStart());
 }
 
 //override standard paintEvent

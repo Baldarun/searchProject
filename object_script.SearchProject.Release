@@ -9,6 +9,7 @@ INPUT(
 ./release\Algorithm.o
 ./release\bfswindow.o
 ./release\astarwindow.o
+./release\hcoord.o
 ./release\moc_controlwindow.o
 ./release\moc_displaywindow.o
 ./release\moc_mapoptions.o

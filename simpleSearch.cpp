@@ -83,7 +83,7 @@ void SimpleSearch::addFrontier(std::vector<int> point)
 
     //checks that this neighbour is both within the map, hasn't already
     //been explored, and doesn't contain an obstacle
-    if(inBounds(next)==true && isExplored(next)==false && inFrontier(next)==false
+    if(inBounds(next) && !isExplored(next) && !inFrontier(next)
             && fMap[next[0]][next[1]] != 3)
     {
         fFrontier.push_back(next);
@@ -91,7 +91,7 @@ void SimpleSearch::addFrontier(std::vector<int> point)
 
     next[0] = point[0]; next[1] = point[1]+1;
 
-    if(inBounds(next)==true && isExplored(next)==false && inFrontier(next)==false
+    if(inBounds(next) && !isExplored(next) && !inFrontier(next)
             && fMap[next[0]][next[1]] != 3)
     {
         fFrontier.push_back(next);
@@ -99,7 +99,7 @@ void SimpleSearch::addFrontier(std::vector<int> point)
 
     next[0] = point[0]-1; next[1] = point[1];
 
-    if(inBounds(next)==true && isExplored(next)==false && inFrontier(next)==false
+    if(inBounds(next) && !isExplored(next) && !inFrontier(next)
             && fMap[next[0]][next[1]] != 3)
     {
         fFrontier.push_back(next);
@@ -107,7 +107,7 @@ void SimpleSearch::addFrontier(std::vector<int> point)
 
     next[0] = point[0]; next[1] = point[1]-1;
 
-    if(inBounds(next)==true && isExplored(next)==false && inFrontier(next)==false
+    if(inBounds(next) && !isExplored(next) && !inFrontier(next)
             && fMap[next[0]][next[1]] != 3)
     {
         fFrontier.push_back(next);

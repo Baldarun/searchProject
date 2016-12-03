@@ -16,7 +16,10 @@ public:
     bool inBounds(std::vector<int> toCheck);
     bool isExplored(std::vector<int> toCheck);
     std::vector<int> findStart();
-    bool inFrontier(std::vector<int>);
+    virtual bool inFrontier(std::vector<int>);
+
+    //declares method to find the coordinates of the objective in a map
+    std::vector<int> findGoal();
 
     //clears the list of explored points
     void clearExplored()
@@ -50,6 +53,11 @@ public:
         fStart = start;
     }
 
+    void setGoal(std::vector<int> goal)
+    {
+        fGoal = goal;
+    }
+
 
 //objects declared as protected for inheritance
 protected:
@@ -61,6 +69,9 @@ protected:
     std::vector<std::vector<int>> fExplored;
     //A vector of points to expand. Treated such that it functions as a queue or stack
     std::vector<std::vector<int>> fFrontier;
+
+    //Point that marks the goal on the map
+    std::vector<int> fGoal;
 
 };
 
