@@ -5,7 +5,7 @@
 #include <mapmaker.h>
 #include <simpleSearch.h>
 #include <astar.h>
-
+#include <QPainter>
 
 namespace Ui {
 class MapOptions;
@@ -29,6 +29,7 @@ private slots:
 
 private:
 
+    //keeps each other object as a variable so it can set their maps
     Ui::MapOptions *ui;
 
     MapMaker * fMapMaker;

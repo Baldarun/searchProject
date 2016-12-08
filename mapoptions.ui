@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="newMap">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>10</y>
+     <x>0</x>
+     <y>0</y>
      <width>101</width>
      <height>23</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="keepButton">
    <property name="geometry">
     <rect>
-     <x>154</x>
-     <y>10</y>
+     <x>0</x>
+     <y>20</y>
      <width>91</width>
      <height>23</height>
     </rect>

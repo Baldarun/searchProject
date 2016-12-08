@@ -2,6 +2,7 @@
 #define simpleSearch_H
 #include <Algorithm.h>
 
+//inherits from Algorithm
 class SimpleSearch: public Algorithm
 {
 
@@ -9,6 +10,7 @@ public:
 
     //declares a default (no arguments) constuctor
     SimpleSearch();
+
     //declares a constructor that allows the user to manually input a map
     SimpleSearch(std::vector<std::vector<int>> map);
 
@@ -18,7 +20,7 @@ public:
     //declares a primary method of the class; the breadth-first-search algorithm
     std::vector<std::vector<int>> BFSearch(std::vector<int> start);
 
-    //method to add values to the frontier
+    //method to add values to the frontier, used the same by both searches
     void addFrontier(std::vector<int>);
 };
 

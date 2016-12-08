@@ -662,6 +662,11 @@ debug/moc_astarwindow.cpp: ../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/i
 		astar.h \
 		algorithm.h \
 		hcoord.h \
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/QPainter \
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qpainter.h \
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qtextoption.h \
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qpen.h \
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtCore/QString \
 		astarwindow.h \
 		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/bin/moc.exe
 	"C:\Program Files (x86)\Qt\5.7\mingw53_32\bin\moc.exe" $(DEFINES) -D__GNUC__ -DWIN32 -I"C:/Program Files (x86)/Qt/5.7/mingw53_32/mkspecs/win32-g++" -IC:/Users/Jay/Documents/SearchProject -I"C:/Program Files (x86)/Qt/5.7/mingw53_32/include" -I"C:/Program Files (x86)/Qt/5.7/mingw53_32/include/QtWidgets" -I"C:/Program Files (x86)/Qt/5.7/mingw53_32/include/QtGui" -I"C:/Program Files (x86)/Qt/5.7/mingw53_32/include/QtANGLE" -I"C:/Program Files (x86)/Qt/5.7/mingw53_32/include/QtCore" -I"C:/Program Files (x86)/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include" -I"C:/Program Files (x86)/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed" -I"C:/Program Files (x86)/Qt/Tools/mingw530_32/i686-w64-mingw32/include" -I"C:/Program Files (x86)/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++" -I"C:/Program Files (x86)/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32" -I"C:/Program Files (x86)/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward" astarwindow.h -o debug\moc_astarwindow.cpp
@@ -968,7 +973,8 @@ debug/controlwindow.o: controlwindow.cpp ControlWindow.h \
 		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/QPainter \
 		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qpainter.h \
 		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qtextoption.h \
-		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qpen.h
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qpen.h \
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\controlwindow.o controlwindow.cpp
 
 debug/displaywindow.o: displaywindow.cpp DisplayWindow.h \
@@ -1514,6 +1520,11 @@ debug/astarwindow.o: astarwindow.cpp astarwindow.h \
 		astar.h \
 		algorithm.h \
 		hcoord.h \
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/QPainter \
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qpainter.h \
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qtextoption.h \
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qpen.h \
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtCore/QString \
 		ui_astarwindow.h \
 		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtCore/QVariant \
 		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtWidgets/QAction \
@@ -1546,12 +1557,7 @@ debug/astarwindow.o: astarwindow.cpp astarwindow.h \
 		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtWidgets/qstyle.h \
 		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtWidgets/qtabbar.h \
 		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtWidgets/qtabwidget.h \
-		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtWidgets/qrubberband.h \
-		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/QPainter \
-		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qpainter.h \
-		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qtextoption.h \
-		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtGui/qpen.h \
-		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtCore/QString
+		../../../../Program\ Files\ (x86)/Qt/5.7/mingw53_32/include/QtWidgets/qrubberband.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\astarwindow.o astarwindow.cpp
 
 debug/hcoord.o: hcoord.cpp hcoord.h

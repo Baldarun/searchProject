@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-
+//inherits from Algorithm to use the same map objects
 class MapMaker: public Algorithm
 {
 public:
@@ -14,9 +14,10 @@ public:
     MapMaker();
 
     //arguments constructor
+    //allows custom size and initial obstacle percentage
     MapMaker(int xSize, int ySize, int percentWall);
 
-    //getter methods
+    //getter adn setter methods
     std::vector<int> getSize()
     {
         std::vector<int> size = {fXSize, fYSize};
@@ -28,12 +29,7 @@ public:
         return fPercentWall;
     }
 
-    void setMap(std::vector<std::vector<int>> map)
-    {
-        fMap = map;
-    }
-
-    //declaration of the method that initialises the map which will then be cleaned up
+    //declaration of the method that calls the procedural generation effect
     void intitialise();
 
 private:
@@ -42,7 +38,7 @@ private:
     int fXSize;
     int fYSize;
 
-    //the percentage of the map that should be obstacle
+    //the percentage of the map that should initially be obstacle
     int fPercentWall;
 
 };

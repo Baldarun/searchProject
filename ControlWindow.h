@@ -30,7 +30,7 @@ private slots:
 private:
     Ui::ControlWindow *ui;
 
-    //DFS to be used declared as a pointer to the input
+    //objects to be used declared as a pointers to the input
     SimpleSearch * fDFS;
     SimpleSearch * fBFS;
     AStar * fAStar;
